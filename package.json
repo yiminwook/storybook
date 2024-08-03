@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_e5b50c29172bf32"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -33,6 +34,7 @@
     "@vanilla-extract/css": "^1.15.3",
     "@vanilla-extract/vite-plugin": "^4.0.13",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "chromatic": "^11.7.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
