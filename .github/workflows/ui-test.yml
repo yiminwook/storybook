@@ -1,25 +1,27 @@
+# https://storybook.js.org/docs/writing-tests/test-runner
 name: "UI Test"
-
 on: push
 
 jobs:
   accessibility:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.state == 'success'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
       - name: Install dependencies
-        run: pnpm
+        run: pnpm install
       - name: Install Playwright
         run: npx playwright install --with-deps
-      - name: Run Storybook tests
-        run: pnpm test-storybook
-        env:
-          TARGET_URL: "${{ github.event.deployment_status.target_url }}"
+      - name: Build Storybook
+        run: pnpm build-storybook --quiet
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:6006 && yarn test-storybook"
   chromatic:
     needs: accessibility
     name: Run Chromatic
