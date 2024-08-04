@@ -18,7 +18,7 @@
       "types": "./dist/index.d.ts"
     },
     "./styles": {
-      "import": "./dist/styles/index.css"
+      "import": "./dist/index.css"
     }
   },
   "version": "0.0.1",

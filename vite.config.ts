@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
-import svgr from "vite-plugin-svgr";
+// import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+// import svgr from "vite-plugin-svgr";
 import path from "path";
 import dts from "vite-plugin-dts";
 import { viteStaticCopy } from "vite-plugin-static-copy";
@@ -15,10 +15,10 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    vanillaExtractPlugin({
-      identifiers: ({ hash }) => `css_${hash}`,
-    }),
-    svgr(),
+    // vanillaExtractPlugin({
+    //   identifiers: ({ hash }) => `css_${hash}`,
+    // }),
+    // svgr(),
     dts(),
     viteStaticCopy({
       targets: [{ src: "src/index.css", dest: "" }],
