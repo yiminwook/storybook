@@ -1,0 +1,28 @@
+name: Deploy React Application to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # main 브랜치에 푸시되면 이 워크플로우가 실행됩니다.
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # GitHub 호스팅 러너를 사용합니다.
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2 # 깃허브 리포지토리의 코드를 체크아웃합니다.
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.14" # 프로젝트에 맞는 Node.js 버전을 설정합니다.
+
+      - name: Install PNPM
+        run: npm install -g pnpm # pnpm을 글로벌로 설치합니다.
+
+      - name: Install Dependencies
+        run: pnpm install # 의존성을 설치합니다.
+
+      - name: Build and Deploy
+        run: pnpm run deploy # 빌드 후 깃허브 페이지로 배포합니다.

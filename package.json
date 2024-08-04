@@ -8,6 +8,7 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://twos-day.github.io/story",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -26,13 +27,16 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "preview": "vite preview --outDir build",
+    "build": "tsc -b && vite build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "pnpm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --verbose --coverage",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "npm:build": "tsc -b && cross-env DEPLOY_TARGET=npm vite build"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -63,10 +67,12 @@
     "axe-playwright": "^2.0.1",
     "chromatic": "^11.7.0",
     "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "gh-pages": "^6.1.1",
     "playwright": "^1.45.3",
     "storybook": "^8.2.7",
     "typescript": "^5.2.2",
