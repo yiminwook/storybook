@@ -7,6 +7,7 @@ import dts from "vite-plugin-dts";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const defaultConfig: UserConfig = {
+  base: "/story",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
