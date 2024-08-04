@@ -5,6 +5,6 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+export default function Button({ children, onClick }: ButtonProps) {
   return <button className={button}>{children}</button>;
-};
+}

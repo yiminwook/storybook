@@ -8,12 +8,9 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    email: { control: "text", description: "이메일 입력값" },
-    password: { control: "text", description: "비밀번호 입력값" },
-    onChangeEmail: { action: "changed", description: "이메일 입력값 변경 이벤트" },
-    onChangePassword: { action: "changed", description: "비밀번호 입력값 변경 이벤트" },
+    test: { control: "text", description: "테스트용 입력값" },
   },
-  args: { email: "", password: "", onChangeEmail: fn(), onChangePassword: fn() },
+  args: { test: "" },
 } satisfies Meta<typeof LoginForm>;
 
 export default meta;

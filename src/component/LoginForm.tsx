@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { form } from "./loginForm.css";
 
-interface LoginFormProps {}
+interface LoginFormProps {
+  test: string;
+}
 
-export default function LoginForm({}: LoginFormProps) {
+export default function LoginForm({ test }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
 
