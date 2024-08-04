@@ -8,7 +8,8 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    "@storybook/addon-a11y",
+    "@storybook/addon-a11y", // 시인성 테스트
+    "@storybook/addon-coverage", // 커버리지 테스트
   ],
   framework: {
     name: "@storybook/react-vite",

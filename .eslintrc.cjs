@@ -18,5 +18,6 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "prettier/prettier": "off",
     "prefer-const": "off",
+    "no-empty-pattern": "off",
   },
 };
