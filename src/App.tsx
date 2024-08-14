@@ -6,6 +6,7 @@ const Home = React.lazy(() => import("./page/home"));
 const Preview = React.lazy(() => import("./page/preview"));
 const Test1 = React.lazy(() => import("./page/test1"));
 const Vanilla = React.lazy(() => import("./page/vanilla"));
+const Toast = React.lazy(() => import("./page/toast"));
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <ul className="mainRoutes">
           <GnbItem name="test1" href="/test1" />
           <GnbItem name="vanilla" href="/vanilla" />
+          <GnbItem name="Toast" href="/Toast" />
         </ul>
       </aside>
       <Suspense fallback={<div>Loading...</div>}>
@@ -27,6 +29,7 @@ export default function App() {
           <Route path="/about" element={<Preview />} />
           <Route path="/test1" element={<Test1 />} />
           <Route path="/vanilla" element={<Vanilla />} />
+          <Route path="/Toast" element={<Toast />} />
           <Route path="*" element={<div>404</div>} />
         </Routes>
       </Suspense>
