@@ -4,7 +4,6 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 import dts from "vite-plugin-dts";
-import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const defaultConfig: UserConfig = {
   base: process.env.NODE_ENV === "development" ? "/" : "/story",
@@ -32,13 +31,14 @@ export default defineConfig(() => {
     defaultConfig.plugins?.push(
       dts({
         tsconfigPath: "./tsconfig.build.json",
+        rollupTypes: true, //모든 타입을 하나의 파일로 만들지 여부
       }),
     );
-    defaultConfig.plugins?.push(
-      viteStaticCopy({
-        targets: [{ src: "src/index.css", dest: "" }],
-      }),
-    );
+    // defaultConfig.plugins?.push(
+    //   viteStaticCopy({
+    //     targets: [{ src: "src/index.css", dest: "" }],
+    //   }),
+    // );
     defaultConfig.build = {
       lib: {
         name: "@twosday/ui",
@@ -52,10 +52,12 @@ export default defineConfig(() => {
             react: "React",
             "react-dom": "ReactDOM",
           },
-          // assetFileNames: (assetInfo) => {
-          //   if (assetInfo.name === "style.css") return "custom.css";
-          //   return assetInfo.name as string;
-          // },
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name === "style.css") {
+              return "global.css";
+            }
+            return assetInfo.name as string;
+          },
         },
       },
       sourcemap: true,

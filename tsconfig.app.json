@@ -28,6 +28,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "./src/temp/*", "src/storie"]
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", "src/global.css.ts"],
+  "exclude": ["node_modules", "./src/temp/*", "src/story"]
 }

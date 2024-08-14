@@ -3,7 +3,7 @@ name: Deploy React Application to GitHub Pages
 on:
   push:
     branches:
-      - main # main 브랜치에 푸시되면 이 워크플로우가 실행됩니다.
+      - deploy # deploy 브랜치에 푸시되면 이 워크플로우가 실행됩니다.
 
 jobs:
   build-and-deploy:

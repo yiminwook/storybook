@@ -1,5 +1,12 @@
 {
+  // vite-plugin-dts settings
   "extends": "./tsconfig.app.json",
-  "include": ["src/component/**/*.d.ts", "src/component/**/*.ts", "src/component/**/*.tsx"],
+  "include": [
+    "src/index.tsx",
+    "src/global.css.ts",
+    "src/component/**/*.d.ts",
+    "src/component/**/*.ts",
+    "src/component/**/*.tsx"
+  ],
   "exclude": ["node_modules", "./src/temp/*", "./src/stories"]
 }
