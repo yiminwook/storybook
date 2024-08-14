@@ -1,6 +1,9 @@
 # https://storybook.js.org/docs/writing-tests/test-runner
 name: "UI Test"
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   accessibility:
