@@ -1,13 +1,15 @@
-import { useState } from "react";
-import { app } from "./app.css";
-import LoginForm from "./component/LoginForm";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+const Home = React.lazy(() => import("./page/home"));
+const Preview = React.lazy(() => import("./page/preview"));
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <LoginForm test="" />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<Preview />} />
+      hello
+    </Routes>
   );
 }
