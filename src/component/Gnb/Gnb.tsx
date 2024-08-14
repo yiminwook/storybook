@@ -10,12 +10,8 @@ export default function Gnb() {
         </Link>
       </h1>
       <ul className="mainRoutes">
-        <GnbItem name="1" href="/1" />
-        <GnbItem name="2" href="/2">
-          <GnbItem name="a" href="/2/a" />
-          <GnbItem name="b" href="/2/b" />
-          <GnbItem name="c" href="/2/c" />
-        </GnbItem>
+        <GnbItem name="test1" href="/test1" />
+        <GnbItem name="vanilla" href="/vanilla" />
       </ul>
     </aside>
   );
