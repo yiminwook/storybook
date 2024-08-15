@@ -16,21 +16,36 @@ export const useSetToast = () => {
 
   const addToast = useCallback(
     (id: string, children: React.ReactNode) => {
-      dispatch({
-        type: "upsert",
-        payload: {
-          id,
-          children,
-          isOpen: true,
-          timeoutId: window.setTimeout(() => {
+      const payload = {
+        id,
+        children,
+        isOpen: true,
+        timeoutId: window.setTimeout(() => {
+          dispatch({
+            // 닫는 애니메이션
+            type: "upsert",
+            payload: { id, isOpen: false, timeoutId: null },
+          });
+        }, TOAST_DURATION),
+        onMouseEnter() {
+          if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+          }
+        },
+        onMouseLeave() {
+          this.timeoutId = window.setTimeout(() => {
             dispatch({
-              // 닫는 애니메이션
               type: "upsert",
               payload: { id, isOpen: false, timeoutId: null },
             });
-          }, TOAST_DURATION),
+          }, TOAST_DURATION);
         },
-      });
+      };
+
+      payload.onMouseEnter = payload.onMouseEnter.bind(payload);
+      payload.onMouseLeave = payload.onMouseLeave.bind(payload);
+
+      dispatch({ type: "upsert", payload });
     },
     [dispatch],
   );

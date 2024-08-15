@@ -4,7 +4,7 @@ import { useSetToast } from "./toastContext";
 import { toast } from "./toast.css";
 import { useEffect, useRef, useState } from "react";
 
-export default function Toast({ id, isOpen, timeoutId, children }: ToastState) {
+export default function Toast({ id, isOpen, children, onMouseEnter, onMouseLeave }: ToastState) {
   const [modifier, setModifier] = useState<string[]>([]);
   const toastRef = useRef<HTMLDivElement>(null);
   const { removeToast } = useSetToast();
@@ -29,6 +29,8 @@ export default function Toast({ id, isOpen, timeoutId, children }: ToastState) {
       ref={toastRef}
       className={classNames(toast, modifier)}
       onAnimationEnd={onAnimationEnd}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </div>
