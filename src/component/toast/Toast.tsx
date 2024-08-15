@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import { ToastState } from "./toast.type";
-import { useSetToast } from "./toastContext";
+import { useSetToastCtx } from "./useToast";
 import { toast } from "./toast.css";
 import { useEffect, useRef, useState } from "react";
 
 export default function Toast({ id, isOpen, children, onMouseEnter, onMouseLeave }: ToastState) {
   const [modifier, setModifier] = useState<string[]>([]);
   const toastRef = useRef<HTMLDivElement>(null);
-  const { removeToast } = useSetToast();
+  const { removeToast } = useSetToastCtx();
 
   const onAnimationEnd = () => {
     const $toast = toastRef.current;

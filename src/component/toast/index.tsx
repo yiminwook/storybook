@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { listItem } from "./toast.css";
-import { useSetToast } from "./toastContext";
 import ToastProvider from "./ToastProvider";
+import { useSetToastCtx } from "./useToast";
 export { default as Toast } from "./Toast";
 export * from "./toast.type";
 export * from "./toastContext";
@@ -29,7 +29,7 @@ type RowProps = {
 };
 
 function Row({ id, name, index }: RowProps) {
-  const { addToast } = useSetToast();
+  const { addToast } = useSetToastCtx();
 
   const onClick = () => {
     addToast(

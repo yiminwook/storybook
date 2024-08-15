@@ -1,16 +1,16 @@
 import classNames from "classnames";
 import { toastRoot } from "./toast.css";
-import { useValueToast } from "./toastContext";
+import { useValueToastCtx } from "./useToast";
 import Toast from "./Toast";
 
 export default function ToastRoot() {
-  const toast = useValueToast();
+  const toastList = useValueToastCtx();
   return (
     <div className={classNames(toastRoot)}>
-      {toast.map((item) => {
-        const { children, ...rest } = item;
+      {toastList.map((toast) => {
+        const { children, ...rest } = toast;
         return (
-          <Toast key={item.id} {...rest}>
+          <Toast key={toast.id} {...rest}>
             {children}
           </Toast>
         );
