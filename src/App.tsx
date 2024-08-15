@@ -8,6 +8,7 @@ const Test1 = React.lazy(() => import("./page/test1"));
 const Vanilla = React.lazy(() => import("./page/vanilla"));
 const ToastContext = React.lazy(() => import("./page/toast/context"));
 const ToastPortal = React.lazy(() => import("./page/toast/portal"));
+const ToastVanilla = React.lazy(() => import("./page/toast/vanilla"));
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <GnbItem name="Toast" href="/toast">
             <GnbItem name="context" href="/toast/context" />
             <GnbItem name="portal" href="/toast/portal" />
+            <GnbItem name="vanilla" href="/toast/vanilla" />
           </GnbItem>
         </ul>
       </aside>
@@ -36,6 +38,7 @@ export default function App() {
           <Route path="/toast" element={<div>index</div>} />
           <Route path="/toast/context" element={<ToastContext />} />
           <Route path="/toast/portal" element={<ToastPortal />} />
+          <Route path="/toast/vanilla" element={<ToastVanilla />} />
           <Route path="*" element={<div>404</div>} />
         </Routes>
       </Suspense>

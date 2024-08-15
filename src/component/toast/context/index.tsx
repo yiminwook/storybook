@@ -2,31 +2,11 @@ import classNames from "classnames";
 import { listItem } from "../toast.css";
 import ToastProvider from "./ToastProvider";
 import { useSetToastCtx } from "./useToast";
+import { DATA, RowProps } from "../toast.const";
 export { default as Toast } from "./Toast";
 export * from "./toast.type";
 export * from "./toastContext";
 export { default as ToastProvider } from "./ToastProvider";
-
-const DATA = [
-  {
-    id: "1",
-    name: "first",
-  },
-  {
-    id: "2",
-    name: "second",
-  },
-  {
-    id: "3",
-    name: "third",
-  },
-] satisfies Omit<RowProps, "index">[];
-
-type RowProps = {
-  id: string;
-  name: string;
-  index: number;
-};
 
 function Row({ id, name, index }: RowProps) {
   const { addToast } = useSetToastCtx();
@@ -47,7 +27,7 @@ function Row({ id, name, index }: RowProps) {
   );
 }
 
-export default function PreviewToast() {
+export default function ToastContextPreview() {
   return (
     <ToastProvider>
       <h3>
