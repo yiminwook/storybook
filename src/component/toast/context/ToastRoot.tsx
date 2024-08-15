@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { toastRoot } from "./toast.css";
+import { toastRoot } from "../toast.css";
 import { useValueToastCtx } from "./useToast";
 import Toast from "./Toast";
 

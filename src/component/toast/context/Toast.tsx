@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { ToastState } from "./toast.type";
 import { useSetToastCtx } from "./useToast";
-import { toast } from "./toast.css";
+import { toast } from "../toast.css";
 import { useEffect, useRef, useState } from "react";
 
 export default function Toast({ id, isOpen, children, onMouseEnter, onMouseLeave }: ToastState) {

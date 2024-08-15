@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { ToastContext, ToastSetContext } from "./toastContext";
-
-const TOAST_DURATION = 3000;
+import { TOAST_DURATION } from "../toast.const";
 
 export const useValueToastCtx = () => {
   return React.useContext(ToastContext);

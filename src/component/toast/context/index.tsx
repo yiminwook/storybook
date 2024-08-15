@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { listItem } from "./toast.css";
+import { listItem } from "../toast.css";
 import ToastProvider from "./ToastProvider";
 import { useSetToastCtx } from "./useToast";
 export { default as Toast } from "./Toast";

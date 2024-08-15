@@ -2,13 +2,7 @@ import { useReducer } from "react";
 import { ToastAction, ToastActionType, ToastState } from "./toast.type";
 import { ToastContext, ToastSetContext } from "./toastContext";
 import ToastRoot from "./ToastRoot";
-
-const DEFAULT_TOAST_STATE = {
-  id: "",
-  children: null,
-  isOpen: true,
-  timeoutId: null,
-} satisfies ToastState;
+import { DEFAULT_TOAST_STATE } from "../toast.const";
 
 const toastReducetMap: Record<
   ToastActionType,
