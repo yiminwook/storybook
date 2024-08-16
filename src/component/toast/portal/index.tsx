@@ -24,7 +24,7 @@ export default function ToastPortalPreview() {
   return (
     <>
       <h3>
-        Toast #1 <sub>portal</sub>
+        Toast #2 <sub>portal</sub>
       </h3>
       {DATA.map((item, index) => {
         return <Row {...item} key={item.id} index={index} />;
