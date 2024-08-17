@@ -9,6 +9,8 @@ const Vanilla = React.lazy(() => import("./page/vanilla"));
 const ToastContext = React.lazy(() => import("./page/toast/context"));
 const ToastPortal = React.lazy(() => import("./page/toast/portal"));
 const ToastVanilla = React.lazy(() => import("./page/toast/vanilla"));
+const ModalContext = React.lazy(() => import("./page/modal/context"));
+const ModalVanilla = React.lazy(() => import("./page/modal/vanilla"));
 
 export default function App() {
   return (
@@ -27,6 +29,10 @@ export default function App() {
             <GnbItem name="portal" href="/toast/portal" />
             <GnbItem name="vanilla" href="/toast/vanilla" />
           </GnbItem>
+          <GnbItem name="Modal" href="/modal">
+            <GnbItem name="context" href="/modal/context" />
+            <GnbItem name="vanilla" href="/modal/vanilla" />
+          </GnbItem>
         </ul>
       </aside>
       <Suspense fallback={<div>Loading...</div>}>
@@ -39,6 +45,9 @@ export default function App() {
           <Route path="/toast/context" element={<ToastContext />} />
           <Route path="/toast/portal" element={<ToastPortal />} />
           <Route path="/toast/vanilla" element={<ToastVanilla />} />
+          <Route path="/modal" element={<div>index</div>} />
+          <Route path="/modal/context" element={<ModalContext />} />
+          <Route path="/modal/vanilla" element={<ModalVanilla />} />
           <Route path="*" element={<div>404</div>} />
         </Routes>
       </Suspense>
