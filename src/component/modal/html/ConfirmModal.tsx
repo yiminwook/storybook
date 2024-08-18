@@ -4,7 +4,7 @@ type ConfirmModalProps = {
   children: React.ReactNode;
   onConfirm: () => void;
   onCancel: () => void;
-  show: boolean;
+  modalRef: React.RefObject<HTMLDialogElement>;
   hide: () => void;
 };
 
@@ -12,11 +12,11 @@ export default function ConfirmModal({
   children,
   onConfirm,
   onCancel,
-  show,
+  modalRef,
   hide,
 }: ConfirmModalProps) {
   return (
-    <Modal show={show} outsideClick hide={hide}>
+    <Modal modalRef={modalRef} outsideClick hide={hide}>
       <Modal.Header title="주의" hide={hide} />
       <Modal.Content>{children}</Modal.Content>
       <Modal.Footer>

@@ -7,14 +7,14 @@ type ConfirmTriggerProps = {
 };
 
 export default function ConfirmTrigger({ children }: ConfirmTriggerProps) {
-  const { openModal, closeModal, show } = useModal();
+  const { openModal, closeModal, modalRef } = useModal();
   const [confirm, setConfirm] = useState<boolean | null>(null);
 
   return (
     <>
       <button onClick={openModal}>확인모달 &lt;열기&gt;{confirm ? "확인됨" : "확인안됨"}</button>
       <ComfirmModal
-        show={show}
+        modalRef={modalRef}
         onCancel={() => {
           setConfirm(false);
           closeModal();

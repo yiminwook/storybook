@@ -1,26 +1,26 @@
 import classNames from "classnames";
 import * as css from "../modal.css";
-import { useModal } from "./useModal";
-import { createPortal } from "react-dom";
+import { useCallback } from "react";
 
 type ModalProps = {
+  modalRef: React.RefObject<HTMLDialogElement>;
   children: React.ReactNode;
   outsideClick?: boolean;
-  show: boolean;
-  hide: () => void;
+  hide?: () => void;
 };
 
-export function Modal({ children, outsideClick = false, show, hide }: ModalProps) {
-  const { closeModal } = useModal();
+export function Modal({ modalRef, children, outsideClick, hide }: ModalProps) {
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (outsideClick && e.target === modalRef.current) hide?.();
+    },
+    [outsideClick, hide, modalRef],
+  );
 
-  if (!show) return null;
-  return createPortal(
-    <div className={classNames(css.modal)} onClick={() => outsideClick && closeModal()}>
-      <div className={classNames(css.inner)} onClick={(e) => e.stopPropagation()}>
-        {children}
-      </div>
-    </div>,
-    document.getElementById("modal-root")!,
+  return (
+    <dialog ref={modalRef} className={classNames(css.dialog)} onClick={handleClick}>
+      {children}
+    </dialog>
   );
 }
 

@@ -6,12 +6,12 @@ type AlertTriggerProps = {
 };
 
 export default function AlertTrigger({ text }: AlertTriggerProps) {
-  const { openModal, closeModal, show } = useModal();
+  const { openModal, closeModal, modalRef } = useModal();
 
   return (
     <>
       <button onClick={openModal}>{text}</button>
-      <AlertModal text={text} hide={closeModal} show={show} />
+      <AlertModal text={text} hide={closeModal} modalRef={modalRef} />
     </>
   );
 }

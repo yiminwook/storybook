@@ -86,3 +86,30 @@ globalStyle(`${footer} button`, {
   fontWeight: 600,
   border: "1px solid black",
 });
+
+export const dialog = style({
+  position: "absolute",
+  boxShadow: "0 3px 6px rgba(0, 0, 0, 0.1)",
+  maxWidth: "calc(100vw - 80px)",
+  maxHeight: "calc(100dvh - 80px)",
+  minWidth: 250,
+  border: "1px solid #242424",
+  borderRadius: 6,
+  backgroundColor: "#fff",
+  margin: "auto",
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  overflow: "hidden",
+
+  "::backdrop": {
+    backdropFilter: "blur(5px)",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+  },
+  selectors: {
+    "&:not([open])": {
+      display: "none",
+    },
+  },
+});

@@ -1,15 +1,24 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef } from "react";
+
+export const toggleScroll = (force?: boolean) => {
+  document.body.classList.toggle(
+    "no-scroll",
+    typeof force === "boolean" ? force : document.querySelectorAll("dialog[open]").length > 0,
+  );
+};
 
 export const useModal = () => {
-  const [show, setShow] = useState(false);
+  const modalRef = useRef<HTMLDialogElement>(null);
 
   const openModal = useCallback(() => {
-    setShow(() => true);
-  }, []);
+    modalRef.current?.showModal();
+    toggleScroll(true);
+  }, [modalRef]);
 
   const closeModal = useCallback(() => {
-    setShow(() => false);
-  }, []);
+    modalRef.current?.close();
+    toggleScroll();
+  }, [modalRef]);
 
-  return { openModal, closeModal, show };
+  return { openModal, closeModal, modalRef };
 };

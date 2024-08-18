@@ -2,13 +2,13 @@ import Modal from "./Modal";
 
 type AlertModalProps = {
   text: string;
-  hide: () => void;
-  show: boolean;
+  modalRef: React.RefObject<HTMLDialogElement>;
+  hide?: () => void;
 };
 
-export default function AlertModal({ text, show, hide }: AlertModalProps) {
+export default function AlertModal({ text, modalRef, hide }: AlertModalProps) {
   return (
-    <Modal show={show} hide={hide}>
+    <Modal modalRef={modalRef} hide={hide}>
       <Modal.Content>
         <p>{text}</p>
       </Modal.Content>
