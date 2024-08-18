@@ -1,21 +1,26 @@
 import classNames from "classnames";
 import * as css from "../modal.css";
 import { useModal } from "./useModal";
+import { createPortal } from "react-dom";
 
 type ModalProps = {
-  id: string;
   children: React.ReactNode;
   outsideClick?: boolean;
+  show: boolean;
+  hide: () => void;
 };
 
-export function Modal({ children, id, outsideClick = false }: ModalProps) {
+export function Modal({ children, outsideClick = false, show, hide }: ModalProps) {
   const { closeModal } = useModal();
-  return (
-    <div className={classNames(css.modal)} onClick={() => outsideClick && closeModal(id)}>
+
+  if (!show) return null;
+  return createPortal(
+    <div className={classNames(css.modal)} onClick={() => outsideClick && closeModal()}>
       <div className={classNames(css.inner)} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")!,
   );
 }
 
