@@ -1,6 +1,6 @@
 import { FormEvent, MouseEvent, SyntheticEvent } from "react";
 import { useModal } from "./useModal";
-import Modal from "./modal";
+import Modal from "./Modal";
 
 type FormModalProps = {
   id: string;

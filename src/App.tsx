@@ -11,6 +11,7 @@ const ToastPortal = React.lazy(() => import("./page/toast/portal"));
 const ToastVanilla = React.lazy(() => import("./page/toast/vanilla"));
 const ModalContext = React.lazy(() => import("./page/modal/context"));
 const ModalPortal = React.lazy(() => import("./page/modal/portal"));
+const ModalHtml = React.lazy(() => import("./page/modal/html"));
 const ModalVanilla = React.lazy(() => import("./page/modal/vanilla"));
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           <GnbItem name="Modal" href="/modal">
             <GnbItem name="context" href="/modal/context" />
             <GnbItem name="portal" href="/modal/portal" />
+            <GnbItem name="html" href="/modal/html" />
             <GnbItem name="vanilla" href="/modal/vanilla" />
           </GnbItem>
         </ul>
@@ -50,6 +52,7 @@ export default function App() {
           <Route path="/modal" element={<div>index</div>} />
           <Route path="/modal/context" element={<ModalContext />} />
           <Route path="/modal/portal" element={<ModalPortal />} />
+          <Route path="/modal/html" element={<ModalHtml />} />
           <Route path="/modal/vanilla" element={<ModalVanilla />} />
           <Route path="*" element={<div>404</div>} />
         </Routes>
