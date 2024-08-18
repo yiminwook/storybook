@@ -1,6 +1,7 @@
 import AlertTrigger from "./AlertTrigger";
 import ConfirmTrigger from "./ConfirmTrigger";
 import FormTrigger from "./FormTrigger";
+import ModalRoot from "./ModalRoot";
 
 export default function ModalPortalPreview() {
   return (
@@ -54,7 +55,7 @@ export default function ModalPortalPreview() {
       <p>____place____holder____</p>
       <p>____place____holder____</p>
       <FormTrigger id="submit" />
-      <div id="modal-root"></div>
+      <ModalRoot />
     </>
   );
 }
