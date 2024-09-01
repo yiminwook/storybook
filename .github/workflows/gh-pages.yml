@@ -14,7 +14,7 @@ jobs:
       id-token: write # to verify the deployment originates from an appropriate source
     environment:
       name: github-pages
-      url: "https://twos-day.github.io/story"
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2 # 깃허브 리포지토리의 코드를 체크아웃합니다.
