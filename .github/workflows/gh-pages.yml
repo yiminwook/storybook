@@ -1,0 +1,39 @@
+name: gh-pages
+
+on:
+  push:
+    branches:
+      - main # deploy 브랜치에 푸시되면 이 워크플로우가 실행됩니다.
+
+jobs:
+  buildAndDeploy:
+    runs-on: ubuntu-latest
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: "https://twos-day.github.io/story"
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2 # 깃허브 리포지토리의 코드를 체크아웃합니다.
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.14" # 프로젝트에 맞는 Node.js 버전을 설정합니다.
+      - name: Install PNPM
+        run: npm install -g pnpm # pnpm을 글로벌로 설치합니다.
+      - name: Install Dependencies
+        run: |
+          pnpm install 
+          pnpm build
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed."
