@@ -33,6 +33,7 @@ jobs:
         with:
           path: "./build"
           retention-days: 1
+          name: "github-pages"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
