@@ -29,11 +29,11 @@ jobs:
           pnpm install 
           pnpm build
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: upload-pages-artifact@v3
         with:
           path: "./build"
-          retention-days: 1
           name: "github-pages"
+          retention-days: 1
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
