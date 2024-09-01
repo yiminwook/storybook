@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <LoginForm test="" />
-      hello
+      배포 테스트
     </div>
   );
 }

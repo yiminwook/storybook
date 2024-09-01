@@ -12,7 +12,6 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<Preview />} />
       <Route path="*" element={<div>404 페이지를 찾을 수 없습니다.</div>} />
-      배포 테스트
     </Routes>
   );
 }
