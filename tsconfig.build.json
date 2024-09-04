@@ -6,7 +6,9 @@
     "src/global.css.ts",
     "src/component/**/*.d.ts",
     "src/component/**/*.ts",
-    "src/component/**/*.tsx"
+    "src/component/**/*.tsx",
+    "src/util/**/*.ts",
+    "src/util/**/*.tsx"
   ],
   "exclude": ["node_modules", "./src/temp/*", "./src/stories"]
 }
