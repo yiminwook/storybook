@@ -1,23 +1,22 @@
-import { FormEvent, MouseEvent, SyntheticEvent } from "react";
-import { useModal } from "./useModal";
+import { FormEvent, MouseEvent } from "react";
 import Modal from "./Modal";
 
 type FormModalProps = {
   id: string;
   children: React.ReactNode;
-  show: boolean;
   hide: () => void;
   onSubmit?: (data: FormData) => void;
   onCancel?: () => void;
+  modalRef: React.RefObject<HTMLDialogElement>;
 };
 
 export default function FormModal({
   id,
   hide,
-  show,
   children,
   onCancel,
   onSubmit,
+  modalRef,
 }: FormModalProps) {
   const formId = `form_${id}`;
 
@@ -34,7 +33,7 @@ export default function FormModal({
   };
 
   return (
-    <Modal show={show} hide={hide}>
+    <Modal modalRef={modalRef} hide={hide} outsideClick>
       <Modal.Header hide={hide} />
       <Modal.Content>
         <form id={formId} onSubmit={handleSumbit}>
