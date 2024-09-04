@@ -6,7 +6,7 @@ import path from "path";
 import dts from "vite-plugin-dts";
 
 const defaultConfig: UserConfig = {
-  base: process.env.NODE_ENV === "development" ? "/" : "/story",
+  base: process.env.NODE_ENV === "development" ? "/" : "/storybook",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

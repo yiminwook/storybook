@@ -16,7 +16,7 @@ const ModalVanilla = React.lazy(() => import("./page/modal/vanilla"));
 
 export default function App() {
   return (
-    <BrowserRouter basename={process.env.NODE_ENV === "development" ? "/" : "/story"}>
+    <BrowserRouter basename={process.env.NODE_ENV === "development" ? "/" : "/storybook"}>
       <aside>
         <h1>
           <Link to="/">
