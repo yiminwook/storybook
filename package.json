@@ -1,5 +1,5 @@
 {
-  "name": "@twosday/ui",
+  "name": "mw-design-system",
   "description": "Design System for twosday",
   "private": false,
   "publishConfig": {
@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://twos-day.github.io/story",
+  "homepage": "https://yiminwook.github.io/storybook",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",

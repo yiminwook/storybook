@@ -37,9 +37,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "{{ EVENT_PAYLOAD.repository.full_name }} 프로젝트가 성공적으로 배포되었습니다. \n [배포 링크](${{ steps.deployment.outputs.page_url }})"
