@@ -7,7 +7,6 @@ on:
 
 jobs:
   chromatic:
-    needs: accessibility
     name: Run Chromatic
     runs-on: ubuntu-latest
     steps:
